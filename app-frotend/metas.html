@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanzApp - Metas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #27AE60;
+            --warning-color: #E74C3C;
+            --background-color: #F5F6FA;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Segoe UI', sans-serif;
+            padding-bottom: 80px;
+        }
+
+        .header-container {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            padding: 0 20px;
+        }
+
+        .goal-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .goal-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .goal-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .goal-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .goal-details {
+            padding: 15px;
+            background-color: var(--background-color);
+        }
+
+        .goal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .navbar-bottom {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.8rem;
+            padding: 10px;
+        }
+
+        .nav-link i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--warning-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-container">
+        <div class="header-content">
+            <h4 class="mb-2">Mis Metas</h4>
+            <p class="mb-0 opacity-75">Seguimiento de objetivos financieros</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Estadísticas de Metas -->
+        <div class="goal-stats">
+            <div class="stat-card">
+                <i class="fas fa-bullseye text-primary mb-2"></i>
+                <h3 class="mb-1">4</h3>
+                <small class="text-muted">Metas Activas</small>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-trophy text-warning mb-2"></i>
+                <h3 class="mb-1">2</h3>
+                <small class="text-muted">Metas Completadas</small>
+            </div>
+        </div>
+
+        <!-- Lista de Metas -->
+        <div class="goal-list">
+            <!-- Meta 1 -->
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="d-flex align-items-center">
+                        <div class="goal-icon bg-primary-subtle text-primary">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1">Fondo de Emergencia</h6>
+                            <small class="text-muted">Meta a 12 meses</small>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <div class="achievement-badge">3</div>
+                    </div>
+                </div>
+                <div class="goal-details">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Progreso</span>
+                        <span class="text-primary">75%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <span class="text-muted">$7,500 ahorrados</span>
+                        <span class="text-muted">Meta: $10,000</span>
+                    </div>
+                    <div class="goal-actions">
+                        <button class="action-button btn-light">
+                            <i class="fas fa-plus-circle me-2"></i>Agregar
+                        </button>
+                        <button class="action-button btn-primary">
+                            <i class="fas fa-chart-line me-2"></i>Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta 2 -->
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="d-flex align-items-center">
+                        <div class="goal-icon bg-warning-subtle text-warning">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1">Vacaciones</h6>
+                            <small class="text-muted">Meta a 6 meses</small>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="goal-details">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Progreso</span>
+                        <span class="text-warning">45%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 45%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <span class="text-muted">$2,250 ahorrados</span>
+                        <span class="text-muted">Meta: $5,000</span>
+                    </div>
+                    <div class="goal-actions">
+                        <button class="action-button btn-light">
+                            <i class="fas fa-plus-circle me-2"></i>Agregar
+                        </button>
+                        <button class="action-button btn-warning">
+                            <i class="fas fa-chart-line me-2"></i>Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta 3 -->
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="d-flex align-items-center">
+                        <div class="goal-icon bg-success-subtle text-success">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1">Fondo Educativo</h6>
+                            <small class="text-muted">Meta a 24 meses</small>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="goal-details">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Progreso</span>
+                        <span class="text-success">25%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <span class="text-muted">$5,000 ahorrados</span>
+                        <span class="text-muted">Meta: $20,000</span>
+                    </div>
+                    <div class="goal-actions">
+                        <button class="action-button btn-light">
+                            <i class="fas fa-plus-circle me-2"></i>Agregar
+                        </button>
+                        <button class="action-button btn-success">
+                            <i class="fas fa-chart-line me-2"></i>Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-btn">
+        <i class="fas fa-plus fs-4"></i>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar-bottom">
+        <div class="d-flex justify-content-around">
+            <a href="../index.html" class="nav-link text-muted">
+                <i class="fas fa-home"></i>
+                Inicio
+            </a>
+            <a href="estadisticas.html" class="nav-link text-muted">
+                <i class="fas fa-chart-bar"></i>
+                Estadísticas
+            </a>
+            <a href="metas.html" class="nav-link text-primary">
+                <i class="fas fa-bullseye"></i>
+                Metas
+            </a>
+            <a href="perfil.html" class="nav-link text-muted">
+                <i class="fas fa-user"></i>
+                Perfil
+            </a>
+        </div>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
